@@ -11,208 +11,211 @@
 <meta property="og:url" content="https://www.mariaballesteros.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,ital,wght@8..60,0,400;8..60,0,600;8..60,1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#231a12;
-  --brown:#4E3629;      /* Brown University primary */
-  --red:#ED1C24;        /* Brown University red, micro-accent only */
-  --link:#97281f;       /* deep red for links */
-  --gray:#5f564d;
-  --light:#94897d;
-  --rule:#e2ddd6;
-  --bg:#ffffff;
+  --font:"EB Garamond", Garamond, Georgia, serif;
+  --ink:#26201a;
+  --brown:#4E3629;        /* Brown University primary */
+  --link:#97281f;         /* deep Brown red for links */
+  --gray:#655a4f;
+  --light:#988d80;
+  --rule:#e3ded6;
+  --rule-strong:#d5cec4;
+  --paper:#ffffff;
+  --sidebar-bg:#f7f4ef;
+  --topbar-h:3.4rem;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  font-family:"Source Serif 4", "Iowan Old Style", Georgia, serif;
-  font-size:1.04rem;line-height:1.62;color:var(--ink);background:var(--bg);
-  border-top:3px solid var(--brown);
+  font-family:var(--font);
+  font-size:1.15rem;line-height:1.6;color:var(--ink);background:var(--paper);
+  -webkit-font-smoothing:antialiased;
 }
-.page{max-width:58rem;margin:0 auto;padding:0 1.5rem}
 a{color:var(--link);text-decoration:none}
 a:hover{text-decoration:underline;text-underline-offset:2px}
+:target{scroll-margin-top:calc(var(--topbar-h) + 1rem)}
 
-/* Sticky nav, as on Chiopris' site */
-.nav{
-  position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);
-  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
-  border-bottom:1px solid var(--rule);
+/* Topbar */
+.topbar{
+  position:sticky;top:0;z-index:20;
+  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
+  height:var(--topbar-h);padding:0 clamp(1.25rem,4vw,2.5rem);
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border-bottom:2px solid var(--brown);
 }
-.nav-inner{
-  max-width:58rem;margin:0 auto;padding:.75rem 1.5rem;
-  display:flex;justify-content:space-between;align-items:baseline;gap:1rem;
-}
-.nav-name{font-weight:600;font-size:1.02rem;color:var(--brown)}
-.nav-name:hover{text-decoration:none;color:var(--link)}
-.nav-links a{
-  color:var(--gray);font-size:.86rem;letter-spacing:.1em;text-transform:uppercase;
+.topbar .brand{font-weight:600;color:var(--brown);font-size:1.08rem}
+.topbar .brand:hover{text-decoration:none;color:var(--link)}
+.topbar nav a{
+  color:var(--gray);font-size:.92rem;letter-spacing:.08em;text-transform:uppercase;
   margin-left:1.6rem;
 }
-.nav-links a:hover{color:var(--link);text-decoration:none}
+.topbar nav a:hover{color:var(--link);text-decoration:none}
 
-/* Hero, two columns like Chiopris */
-.hero{padding:3.4rem 0 3rem;border-bottom:1px solid var(--rule)}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem}
-h1{font-size:2.5rem;font-weight:600;line-height:1.1;color:var(--brown);margin-bottom:.9rem}
-.hero-email{font-size:.98rem;margin-bottom:1.2rem}
-.hero-email a{color:var(--gray)}
-.hero-role{line-height:1.5;margin-bottom:1.5rem}
-.hero-role .r1{font-weight:600}
-.hero-role .r2{color:var(--gray)}
-.hero-statement{max-width:32em;color:var(--ink)}
-.hero-cv{margin-top:1.6rem;font-size:.98rem}
-
-.side h2{
+/* Layout: sidebar + main, as on Chiopris' site */
+.layout{
+  display:grid;
+  grid-template-columns:21rem minmax(0,1fr);
+  min-height:calc(100vh - var(--topbar-h));
+}
+.sidebar{
+  background:var(--sidebar-bg);
+  border-right:1px solid var(--rule-strong);
+  padding:2.5rem 1.9rem 3rem;
+}
+.sidebar .name{font-size:1.75rem;font-weight:600;color:var(--brown);line-height:1.15}
+.sidebar .email{margin:.5rem 0 1.4rem;font-size:1rem}
+.sidebar .email a{color:var(--gray)}
+.sidebar-block{margin-bottom:1.8rem}
+.sidebar-block.position p{line-height:1.45}
+.sidebar-heading{
   font-size:.82rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--brown);margin:0 0 .55rem;padding:0;border:none;
+  color:var(--brown);margin-bottom:.5rem;
 }
-.side .block{margin-bottom:1.7rem}
-.side .block:last-child{margin-bottom:0}
-.side ul{list-style:none}
-.side li{padding:.28rem 0;display:flex;justify-content:space-between;gap:1rem;align-items:baseline}
-.side li .yr{color:var(--light);font-size:.9rem;white-space:nowrap}
-.side li small{display:block;color:var(--gray);font-size:.9rem}
-.interests li{padding:.14rem 0;display:block}
+.sidebar ul{list-style:none}
+.sidebar li{padding:.12rem 0}
+.sidebar .entry{margin-bottom:.6rem}
+.sidebar .entry-title{line-height:1.4}
+.sidebar .entry-year{color:var(--light);font-size:.95rem}
+.sidebar .muted{color:var(--light);font-size:.95rem}
+.sidebar .bio p{font-size:1.05rem;line-height:1.55;color:var(--ink);margin-bottom:.8rem}
+.sidebar .bio p:last-child{margin-bottom:0}
+.cv-link{margin-top:.4rem;font-weight:500}
 
-/* Sections */
-section{padding:2.8rem 0 0;scroll-margin-top:3.6rem}
-h2{
-  font-size:1.55rem;font-weight:600;color:var(--brown);
-  margin-bottom:1.5rem;padding-bottom:.5rem;border-bottom:1px solid var(--rule);
+/* Main column */
+main{padding:2.5rem clamp(1.5rem,4vw,3.5rem) 3rem;max-width:52rem}
+section{padding-top:1rem;margin-bottom:2.8rem}
+h2.section-title{
+  font-size:1.6rem;font-weight:600;color:var(--brown);
+  margin-bottom:1.4rem;padding-bottom:.45rem;border-bottom:1px solid var(--rule);
 }
-h3.theme{
-  font-size:1.08rem;font-weight:600;color:var(--ink);
-  margin:1.9rem 0 1rem;
-}
-h3.theme:first-of-type{margin-top:0}
+h3.topic-title{font-size:1.12rem;font-weight:600;margin:1.8rem 0 1rem}
+h3.topic-title:first-of-type{margin-top:0}
 
 /* Papers */
-.paper{margin-bottom:1.6rem;max-width:52rem}
-.paper .title{font-weight:600;line-height:1.45}
-.paper .status{color:var(--gray);font-style:italic;font-size:.97rem}
-.paper .byline{color:var(--gray);font-size:.97rem}
-.paper .award{font-size:.94rem;color:var(--brown);margin-top:.1rem}
-.paper .row{margin-top:.25rem;font-size:.95rem}
-.paper .row a{margin-right:1.1rem}
+.paper{margin-bottom:1.7rem}
+.paper .paper-title{font-weight:600;line-height:1.4;font-size:1.16rem}
+.paper .status{color:var(--gray);font-style:italic;font-size:1rem}
+.paper .byline{color:var(--gray);font-size:1rem}
+.paper .award{font-size:.98rem;color:var(--brown)}
+.paper .links{margin-top:.25rem;font-size:.98rem}
+.paper .links a{margin-right:1.1rem}
 details{margin-top:.3rem}
-summary{cursor:pointer;color:var(--link);font-size:.95rem;list-style:none;display:inline;user-select:none}
+summary{cursor:pointer;color:var(--link);font-size:.98rem;list-style:none;display:inline;user-select:none}
 summary::-webkit-details-marker{display:none}
 summary::after{content:" +";color:var(--light)}
 details[open] summary::after{content:" −"}
-details p{margin:.6rem 0 .4rem;font-size:.96rem;color:var(--gray);line-height:1.62;max-width:48rem}
+details p{margin:.55rem 0 .4rem;font-size:1rem;color:var(--gray);line-height:1.6}
 
 /* Teaching */
-.teach{list-style:none;max-width:52rem}
-.teach li{
-  display:grid;grid-template-columns:7.4rem 1fr;gap:1.2rem;
-  padding:.55rem 0;border-bottom:1px solid #f0ede9;
-}
-.teach li:last-child{border-bottom:none}
-.teach .when{color:var(--light);font-size:.92rem;white-space:nowrap}
-.teach .what span{display:block;color:var(--gray);font-size:.93rem}
-.teach-note{color:var(--gray);font-size:.96rem;margin-top:1rem;font-style:italic}
+.course{margin-bottom:1.1rem}
+.course-title{font-weight:600;line-height:1.4}
+.course-meta{color:var(--gray);font-size:1rem}
+.teach-note{color:var(--gray);font-style:italic;font-size:1rem;margin-top:1.2rem}
 
 /* Contact */
 .contact p{margin-bottom:.35rem}
 .contact .label{font-weight:600;color:var(--brown)}
 
 footer{
-  margin-top:3.2rem;padding:1.1rem 0 2.4rem;border-top:1px solid var(--rule);
-  color:var(--light);font-size:.85rem;
+  padding:1.2rem 0 .4rem;margin-top:1rem;border-top:1px solid var(--rule);
+  color:var(--light);font-size:.9rem;
   display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;
 }
 footer a{color:var(--light)}
 
-@media (max-width:44rem){
-  .hero{padding:2.4rem 0 2.2rem}
-  .hero-grid{grid-template-columns:1fr;gap:2.2rem}
-  h1{font-size:2.1rem}
-  .nav-links a{margin-left:1rem;font-size:.78rem}
-  .teach li{grid-template-columns:1fr;gap:.05rem}
+@media (max-width:56rem){
+  .layout{grid-template-columns:1fr}
+  .sidebar{border-right:none;border-bottom:1px solid var(--rule-strong)}
+  main{padding-top:2rem}
+  .topbar nav a{margin-left:1rem;font-size:.8rem}
 }
-@media print{.nav{display:none}details{display:none}}
+@media print{.topbar{display:none}details{display:none}}
 </style>
 </head>
 <body>
 
-<nav class="nav" aria-label="Main">
-  <div class="nav-inner">
-    <a class="nav-name" href="#top">María Ballesteros</a>
-    <div class="nav-links">
-      <a href="#research">Research</a>
-      <a href="#teaching">Teaching</a>
-      <a href="#contact">Contact</a>
-      <a href="files/Ballesteros_CV.pdf">CV</a>
-    </div>
-  </div>
-</nav>
-
-<div class="page" id="top">
-
-<header class="hero">
-  <div class="hero-grid">
-    <div>
-      <h1>María Ballesteros</h1>
-      <p class="hero-email"><a href="mailto:maria_ballesteros@brown.edu">maria_ballesteros@brown.edu</a></p>
-      <p class="hero-role">
-        <span class="r1">Rhodes Geopolitics Postdoctoral Research Associate</span><br>
-        <span class="r2">Watson School of International and Public Affairs<br>Brown University</span>
-      </p>
-      <p class="hero-statement">I study the political economy of conflict, crime, and illegal markets: how institutional environments and structural resource constraints condition the choices of armed groups, from insurgents consolidating power after civil war to criminal organizations competing over export markets.</p>
-      <p class="hero-statement" style="margin-top:.9rem">My dissertation, <em>Essays on the Political Economy of Territorial Control During Conflict</em>, examines a central tension in the pursuit of territorial control: violence is often necessary to secure control, but it can also destroy the economic activity that makes control valuable. It received Harvard's Senator Charles Sumner Prize for the best dissertation dealing with means or measures tending toward the prevention of war and the establishment of universal peace.</p>
-      <p class="hero-cv"><a href="files/Ballesteros_CV.pdf">Curriculum Vitae (PDF)</a></p>
-    </div>
-    <aside class="side">
-      <div class="block">
-        <h2>Research Interests</h2>
-        <ul class="interests">
-          <li>Political Economy of Conflict</li>
-          <li>Crime and Illegal Markets</li>
-          <li>Post-Conflict Reconstruction</li>
-          <li>Computational Social Science</li>
-        </ul>
-      </div>
-      <div class="block">
-        <h2>Appointments</h2>
-        <ul>
-          <li><span>Rhodes Geopolitics Postdoctoral Research Associate, Brown University</span><span class="yr">2026–</span></li>
-          <li><span>USIP–Minerva Peace Scholar</span><span class="yr">2024–25</span></li>
-        </ul>
-      </div>
-      <div class="block">
-        <h2>Education</h2>
-        <ul>
-          <li>
-            <span>Ph.D., Political Science, Harvard University<small>Senator Charles Sumner Dissertation Prize</small></span>
-            <span class="yr">2026</span>
-          </li>
-          <li><span>A.M., Political Science, Harvard University</span><span class="yr">2022</span></li>
-          <li><span>B.A., Political Science, ITAM</span><span class="yr">2018</span></li>
-        </ul>
-      </div>
-    </aside>
-  </div>
+<header class="topbar">
+  <a class="brand" href="#top">María Ballesteros</a>
+  <nav aria-label="Main">
+    <a href="#research">Research</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#contact">Contact</a>
+    <a href="files/Ballesteros_CV.pdf">CV</a>
+  </nav>
 </header>
 
-<section id="research">
-  <h2>Research</h2>
+<div class="layout" id="top">
 
-  <h3 class="theme">Crime, Illegal Markets, and Violence</h3>
+<aside class="sidebar">
+  <h1 class="name">María Ballesteros</h1>
+  <p class="email"><a href="mailto:maria_ballesteros@brown.edu">maria_ballesteros@brown.edu</a></p>
+
+  <div class="sidebar-block position">
+    <p>Rhodes Geopolitics Postdoctoral Research Associate</p>
+    <p>Watson School of International and Public Affairs</p>
+    <p>Brown University</p>
+  </div>
+
+  <div class="sidebar-block">
+    <h2 class="sidebar-heading">Research Interests</h2>
+    <ul>
+      <li>Political Economy of Conflict</li>
+      <li>Crime and Illegal Markets</li>
+      <li>Post-Conflict Reconstruction</li>
+      <li>Computational Social Science</li>
+    </ul>
+  </div>
+
+  <div class="sidebar-block bio">
+    <p>I study the political economy of conflict, crime, and illegal markets: how institutional environments and structural resource constraints condition the choices of armed groups, from insurgents consolidating power after civil war to criminal organizations competing over export markets.</p>
+    <p>My dissertation, <em>Essays on the Political Economy of Territorial Control During Conflict</em>, examines a central tension in the pursuit of territorial control: violence is often necessary to secure control, but it can also destroy the economic activity that makes control valuable. It received Harvard's Senator Charles Sumner Prize for the best dissertation dealing with means or measures tending toward the prevention of war and the establishment of universal peace.</p>
+  </div>
+
+  <div class="sidebar-block">
+    <h2 class="sidebar-heading">Appointments</h2>
+    <div class="entry">
+      <p class="entry-title">Rhodes Geopolitics Postdoctoral Research Associate, Brown University</p>
+      <p class="entry-year">2026–</p>
+    </div>
+    <div class="entry">
+      <p class="entry-title">USIP–Minerva Peace Scholar</p>
+      <p class="entry-year">2024–2025</p>
+    </div>
+  </div>
+
+  <div class="sidebar-block">
+    <h2 class="sidebar-heading">Education</h2>
+    <p>Ph.D., Political Science, Harvard University</p>
+    <p class="muted">Senator Charles Sumner Dissertation Prize</p>
+    <p>A.M., Political Science, Harvard University</p>
+    <p>B.A., Political Science, ITAM</p>
+  </div>
+
+  <p class="cv-link"><a href="files/Ballesteros_CV.pdf">Curriculum Vitae (PDF)</a></p>
+</aside>
+
+<main>
+
+<section id="research">
+  <h2 class="section-title">Research</h2>
+
+  <h3 class="topic-title">Crime, Illegal Markets, and Violence</h3>
 
   <div class="paper">
-    <p class="title">Ripe for Entry: How Export Certification Leads Cartels to Replace Local Gangs and Reduce Violence</p>
+    <p class="paper-title">Ripe for Entry: How Export Certification Leads Cartels to Replace Local Gangs and Reduce Violence</p>
     <p class="status">Working paper. Draft available upon request.</p>
     <details>
       <summary>Abstract</summary>
       <p>Institutional arrangements in legal markets can reshape the strategic behavior of the criminal organizations that extract from them. I examine how regulatory institutions that certified municipalities in Michoacán, Mexico to export avocados to the United States reshaped cartel behavior. I provide causally identified evidence that export certification incentivized cartel entry and led to an increase in cartel-related criminal activity, but also tied rents to long-term investment, stability, and regulatory compliance, leading to a reduction in the lethal violence often associated with inter-cartel competition. Positive price shocks affected violence before certification but not after, suggesting that once territorial rents depend on long-term production and institutional compliance, cartels suppress violence to preserve order.</p>
     </details>
-    <p class="row"><a href="mailto:maria_ballesteros@brown.edu?subject=Draft%20request%3A%20Ripe%20for%20Entry">Request draft</a></p>
+    <p class="links"><a href="mailto:maria_ballesteros@brown.edu?subject=Draft%20request%3A%20Ripe%20for%20Entry">Request draft</a></p>
   </div>
 
   <div class="paper">
-    <p class="title">The Politics of Cartel Competition: Evidence from the Mexican Drug War</p>
+    <p class="paper-title">The Politics of Cartel Competition: Evidence from the Mexican Drug War</p>
     <p class="status">Work in progress</p>
     <details>
       <summary>Abstract</summary>
@@ -221,7 +224,7 @@ footer a{color:var(--light)}
   </div>
 
   <div class="paper">
-    <p class="title">Securing Property Rights as a Tool for Equitable Peace-Building: Evidence from Colombia's Land Tenure Formalization and Restitution Efforts</p>
+    <p class="paper-title">Securing Property Rights as a Tool for Equitable Peace-Building: Evidence from Colombia's Land Tenure Formalization and Restitution Efforts</p>
     <p class="status">Work in progress</p>
     <p class="byline">with Christopher W. Blair and Austin L. Wright. Funded by the Evidence in Governance and Politics network.</p>
     <details>
@@ -230,32 +233,32 @@ footer a{color:var(--light)}
     </details>
   </div>
 
-  <h3 class="theme">Conflict and Post-War State-Building</h3>
+  <h3 class="topic-title">Conflict and Post-War State-Building</h3>
 
   <div class="paper">
-    <p class="title">Displacement as State-Building: Mobile Phone Evidence from the Taliban's Return to Power</p>
+    <p class="paper-title">Displacement as State-Building: Mobile Phone Evidence from the Taliban's Return to Power</p>
     <p class="status">Job market paper. Draft available upon request.</p>
     <p class="award">Senator Charles Sumner Dissertation Prize</p>
     <details>
       <summary>Abstract</summary>
       <p>How do victorious insurgents build states after civil war? I argue that forced displacement is a key strategy for rebels seeking to consolidate power in areas previously controlled by dissidents: rebel regimes evict politically risky populations from economically valuable areas to destabilize rivals, accumulate resources, and reward loyalists. Crucially, these evictions are tempered where local populations can disrupt vital economic production. Using a novel dataset of weekly district-to-district population flows constructed from cellphone metadata covering more than 7 million users, I provide evidence that after their victory in Afghanistan in 2021, the Taliban used forced displacement strategically to remove politically threatening populations from valuable areas while limiting evictions where local labor and production were economically essential.</p>
     </details>
-    <p class="row"><a href="mailto:maria_ballesteros@brown.edu?subject=Draft%20request%3A%20Displacement%20as%20State-Building">Request draft</a></p>
+    <p class="links"><a href="mailto:maria_ballesteros@brown.edu?subject=Draft%20request%3A%20Displacement%20as%20State-Building">Request draft</a></p>
   </div>
 
   <div class="paper">
-    <p class="title">Territorial Control in Civil Wars</p>
+    <p class="paper-title">Territorial Control in Civil Wars</p>
     <p class="status">Revise and resubmit, <i>World Politics</i></p>
     <p class="byline">with Christopher W. Blair, Igor Kolesnikov, and Austin L. Wright</p>
     <details>
       <summary>Abstract</summary>
       <p>Territorial control is one of the foundational concepts of conflict research. We trace how the concept has evolved across three generations of scholarship on civil war and identify key conceptual and measurement challenges for future work, with a focus on rigorous causal inference and measurement strategies.</p>
     </details>
-    <p class="row"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4912415">SSRN</a></p>
+    <p class="links"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4912415">SSRN</a></p>
   </div>
 
   <div class="paper">
-    <p class="title">Mobile Phone Data Reveals the Immediate Effects of Civil War Termination on Migration Decisions: An Examination of the Taliban's Victory</p>
+    <p class="paper-title">Mobile Phone Data Reveals the Immediate Effects of Civil War Termination on Migration Decisions: An Examination of the Taliban's Victory</p>
     <p class="status">Work in progress</p>
     <details>
       <summary>Abstract</summary>
@@ -263,10 +266,10 @@ footer a{color:var(--light)}
     </details>
   </div>
 
-  <h3 class="theme">Computational Social Science and Data Privacy</h3>
+  <h3 class="topic-title">Computational Social Science and Data Privacy</h3>
 
   <div class="paper">
-    <p class="title">Evaluating the Impacts of Swapping on the US Decennial Census</p>
+    <p class="paper-title">Evaluating the Impacts of Swapping on the US Decennial Census</p>
     <p class="status">Published in the <i>Proceedings of the ACM Symposium on Computer Science and Law</i>, 2025</p>
     <p class="byline">with Cynthia Dwork, Gary King, Conlan Olson, and Manish Raghavan</p>
     <details>
@@ -275,60 +278,52 @@ footer a{color:var(--light)}
     </details>
   </div>
 
-  <h3 class="theme">Public Writing</h3>
+  <h3 class="topic-title">Public Writing</h3>
 
   <div class="paper">
-    <p class="title">There's a Better Way for Mexico to Elect Its Judges</p>
+    <p class="paper-title">There's a Better Way for Mexico to Elect Its Judges</p>
     <p class="status"><i>Foreign Policy</i>, September 2024. Covered by <i>The New York Times</i>.</p>
     <p class="byline">with Andrew O'Donohue</p>
-    <p class="row"><a href="https://foreignpolicy.com/2024/09/16/mexico-judicial-reform-constitution-amendment-morena-amlo-sheinbaum/">Article</a></p>
+    <p class="links"><a href="https://foreignpolicy.com/2024/09/16/mexico-judicial-reform-constitution-amendment-morena-amlo-sheinbaum/">Article</a></p>
   </div>
 </section>
 
 <section id="teaching">
-  <h2>Teaching</h2>
-  <ul class="teach">
-    <li>
-      <span class="when">Spring 2026</span>
-      <div class="what">Barriers to Peace: Organized Violence as an Obstacle to Development
-        <span>Instructor, undergraduate seminar, Harvard University</span></div>
-    </li>
-    <li>
-      <span class="when">2023–2024</span>
-      <div class="what">Comparative Politics of Latin America
-        <span>Teaching Fellow for Steven Levitsky, Harvard University</span></div>
-    </li>
-    <li>
-      <span class="when">2023</span>
-      <div class="what">Math Prefresher for PhD Students
-        <span>Instructor, with Sooahn Shin, Harvard University</span></div>
-    </li>
-    <li>
-      <span class="when">2023</span>
-      <div class="what">International Political Economy
-        <span>Teaching Fellow for Jeffry Frieden, Harvard University</span></div>
-    </li>
-    <li>
-      <span class="when">2022</span>
-      <div class="what">Quantitative Analysis and Empirical Methods
-        <span>Teaching Fellow for Maya Sen, Harvard Kennedy School</span></div>
-    </li>
-    <li>
-      <span class="when">2022</span>
-      <div class="what">Diplomacy and International Relations
-        <span>Teaching Fellow and Guest Lecturer for Naima Green-Riley, Harvard University</span></div>
-    </li>
-    <li>
-      <span class="when">2019</span>
-      <div class="what">Quantitative Analysis for Public Policy
-        <span>Head Teaching Fellow, Harris School of Public Policy, University of Chicago</span></div>
-    </li>
-  </ul>
+  <h2 class="section-title">Teaching</h2>
+
+  <div class="course">
+    <p class="course-title">Barriers to Peace: Organized Violence as an Obstacle to Development</p>
+    <p class="course-meta">Instructor, undergraduate seminar, Harvard University, Spring 2026</p>
+  </div>
+  <div class="course">
+    <p class="course-title">Comparative Politics of Latin America</p>
+    <p class="course-meta">Teaching Fellow for Steven Levitsky, Harvard University, 2023 and 2024</p>
+  </div>
+  <div class="course">
+    <p class="course-title">Math Prefresher for PhD Students</p>
+    <p class="course-meta">Instructor, with Sooahn Shin, Harvard University, 2023</p>
+  </div>
+  <div class="course">
+    <p class="course-title">International Political Economy</p>
+    <p class="course-meta">Teaching Fellow for Jeffry Frieden, Harvard University, 2023</p>
+  </div>
+  <div class="course">
+    <p class="course-title">Quantitative Analysis and Empirical Methods</p>
+    <p class="course-meta">Teaching Fellow for Maya Sen, Harvard Kennedy School, 2022</p>
+  </div>
+  <div class="course">
+    <p class="course-title">Diplomacy and International Relations</p>
+    <p class="course-meta">Teaching Fellow and Guest Lecturer for Naima Green-Riley, Harvard University, 2022</p>
+  </div>
+  <div class="course">
+    <p class="course-title">Quantitative Analysis for Public Policy</p>
+    <p class="course-meta">Head Teaching Fellow, Harris School of Public Policy, University of Chicago, 2019</p>
+  </div>
   <p class="teach-note">Nominated as the Harvard Government Department's 2025–26 Pedagogy Fellow.</p>
 </section>
 
 <section class="contact" id="contact">
-  <h2>Contact</h2>
+  <h2 class="section-title">Contact</h2>
   <p><span class="label">Email.</span> <a href="mailto:maria_ballesteros@brown.edu">maria_ballesteros@brown.edu</a></p>
   <p><span class="label">Office.</span> Watson School of International and Public Affairs, Brown University, 111 Thayer Street, Providence, RI 02912</p>
 </section>
@@ -338,6 +333,8 @@ footer a{color:var(--light)}
   <span><a href="#top">Back to top</a></span>
 </footer>
 
+</main>
 </div>
+
 </body>
 </html>
