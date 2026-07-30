@@ -17,8 +17,9 @@ Personal academic website for María Ballesteros. Single-page static site, no bu
 ## Common updates
 - New paper: copy an `<article class="paper">` block inside the right `.theme` div in #research.
 - News item: edit the three `.card` blocks in #latest (keep newest first, drop the oldest).
-- New CV: overwrite `files/Ballesteros_CV.pdf` with the latest export from
-  `~/Dropbox/Harvard/Job Market Materials/Ballesteros_CV_Jul2026.pdf` (or successor).
+- New CV: overwrite `files/Ballesteros_CV.pdf` with the latest NO-REFERENCES export from
+  `~/Dropbox/Harvard/Job Market Materials/Ballesteros_CV_Jul2026_NoReferences.pdf` (or successor).
+  The website always uses the no-references version.
 
 ## Deploy
 Hosted on GitHub Pages from this repo (branch: main, root). After any change:
