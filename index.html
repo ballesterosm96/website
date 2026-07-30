@@ -46,7 +46,10 @@ a:hover{text-decoration:underline;text-underline-offset:2px}
   backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
   border-bottom:2px solid var(--brown);
 }
+.brand-group{display:flex;align-items:center;gap:.9rem;min-width:0}
+.topbar-logo{height:2.15rem;width:auto;display:block}
 .topbar .brand{font-weight:600;color:var(--brown);font-size:1.08rem}
+@media (max-width:44rem){.topbar-logo{height:1.7rem}}
 .topbar .brand:hover{text-decoration:none;color:var(--link)}
 .topbar nav a{
   color:var(--gray);font-size:.92rem;letter-spacing:.08em;text-transform:uppercase;
@@ -147,7 +150,10 @@ footer a{color:var(--light)}
 <body>
 
 <header class="topbar">
-  <a class="brand" href="#top">María Ballesteros</a>
+  <span class="brand-group">
+    <a href="https://watson.brown.edu" aria-label="Watson School of International and Public Affairs"><img class="topbar-logo" src="images/watson_logo.png" alt="The Watson School of International and Public Affairs, Brown University"></a>
+    <a class="brand" href="#top">María Ballesteros</a>
+  </span>
   <nav aria-label="Main">
     <a href="#research">Research</a>
     <a href="#teaching">Teaching</a>
