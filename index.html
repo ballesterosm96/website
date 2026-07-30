@@ -76,6 +76,11 @@ a:hover{text-decoration:underline;text-underline-offset:2px}
 }
 .sidebar ul{list-style:none}
 .sidebar li{padding:.12rem 0}
+.keywords{display:flex;flex-wrap:wrap;gap:.4rem}
+.keywords li{
+  padding:.18rem .7rem;font-size:.9rem;line-height:1.4;color:var(--brown);
+  background:#fff;border:1px solid var(--rule-strong);border-radius:1rem;
+}
 .sidebar .entry{margin-bottom:.6rem}
 .sidebar .entry-title{line-height:1.4}
 .sidebar .entry-year{color:var(--light);font-size:.95rem}
@@ -161,7 +166,7 @@ footer a{color:var(--light)}
 
   <div class="sidebar-block">
     <h2 class="sidebar-heading">Research Interests</h2>
-    <ul>
+    <ul class="keywords">
       <li>Political Economy of Conflict</li>
       <li>Crime and Illegal Markets</li>
       <li>Post-Conflict Reconstruction</li>
