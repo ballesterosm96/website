@@ -9,7 +9,7 @@ Personal academic website for María Ballesteros. Single-page static site, no bu
 - `.nojekyll` — tells GitHub Pages to serve files as-is.
 
 ## Rules
-- "Territorial Control in Civil Wars" is ALWAYS listed last among academic papers (Maria's standing rule, 2026-07-30). On this site it sits at the end of #research under the "Under Review" subheading, just before Policy Writing.
+- "Territorial Control in Civil Wars" is ALWAYS listed last among the main papers (Maria's standing rule). On this site it is the last entry of the flat top list in #research, immediately before the "Works in Progress" subheading. Do NOT give it its own "Under Review" subheading.
 - NEVER copy or link Maria's Dropbox/local paper files here without her explicit approval. Working papers say "Draft available upon request" (mailto link). Published work links to the official online version (SSRN, journal site).
 - Dissertation papers 1 and 2 (Displacement as State-Building; Ripe for Entry) are request-only. Paper 3 (Territorial Control in Civil Wars) links to SSRN: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4912415
 - No em dashes in site copy (Maria's writing style rule).
