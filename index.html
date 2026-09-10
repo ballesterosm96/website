@@ -71,6 +71,11 @@ a:hover{text-decoration:underline;text-underline-offset:2px}
 .sidebar .name{font-size:1.75rem;font-weight:600;color:var(--brown);line-height:1.15}
 .sidebar .email{margin:.5rem 0 1.4rem;font-size:1rem}
 .sidebar .email a{color:var(--gray)}
+.sidebar .headshot{
+  display:block;width:100%;max-width:13rem;height:auto;
+  border:1px solid var(--rule-strong);
+  margin:0 auto 1.3rem;
+}
 .sidebar-block{margin-bottom:1.8rem}
 .sidebar-block.position p{line-height:1.45}
 .sidebar-heading{
@@ -146,6 +151,7 @@ footer a{color:var(--light)}
   .layout{grid-template-columns:1fr}
   .sidebar{border-right:none;border-bottom:1px solid var(--rule-strong);padding:1.9rem 1.4rem 2rem}
   .sidebar .name{font-size:1.9rem}
+  .sidebar .headshot{margin-bottom:1.1rem}
   .sidebar-block{margin-bottom:1.4rem}
   /* Appointments and Education side by side to shorten the scroll */
   .sidebar-cols{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
@@ -200,6 +206,8 @@ footer a{color:var(--light)}
 <div class="layout" id="top">
 
 <aside class="sidebar">
+  <img class="headshot" src="images/headshot.jpg" width="528" height="660"
+       alt="María Ballesteros">
   <h1 class="name">María Ballesteros</h1>
   <p class="email"><a href="mailto:maria_ballesteros@brown.edu">maria_ballesteros@brown.edu</a></p>
 
@@ -296,6 +304,7 @@ footer a{color:var(--light)}
       <summary>Abstract</summary>
       <p>Disclosure avoidance techniques distort publicly released U.S. census data in ways that matter for social science research. We reconstruct the confidential U.S. Census Bureau swapping algorithm from public documentation and analyze its statistical effects, comparing the biases it introduces to those introduced by differential privacy. Our tools help researchers identify and adjust for these distortions in applied work.</p>
     </details>
+    <p class="links"><a href="https://doi.org/10.1145/3709025.3712210">ACM</a><a href="https://arxiv.org/abs/2502.01320">arXiv</a></p>
     </div>
     <figure class="paper-fig"><img src="images/census_swapping.png" alt="County map of change in reported Asian population after census swapping" loading="lazy"></figure>
   </div>
